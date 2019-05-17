@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-top: 50px;
+}
+
+.bordered-overlapping {
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  margin-bottom: -1px;
+}

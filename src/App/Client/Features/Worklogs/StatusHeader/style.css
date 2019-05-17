@@ -1,0 +1,27 @@
+
+.status-header {
+    background: #EBEBEB;
+    margin: 10px 10px 0;
+    padding: 25px;
+    height: 74px;
+    font-size: 18px;
+    color:#7E7E7E;
+}
+
+.status-header > .date {
+    vertical-align: top;
+    float: left;
+    font-size: 18px;
+    color:#7E7E7E;
+    font-weight: bold;    
+}
+
+.status-header > .total-time-logged {
+    vertical-align: top;
+    float: right;
+    text-transform: uppercase;
+}
+
+.status-header .time {
+    font-weight: bold;
+}
