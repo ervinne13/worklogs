@@ -9,6 +9,7 @@ const App = () => (
         <Switch>
             <Route exact path="/ui-library" component={ UILibrary } />
             <Route exact path="/" component={ LoggerScene } />
+            <Route exact path="/log/:date" component={ LoggerScene } />
         </Switch> 
     </BrowserRouter>
 );

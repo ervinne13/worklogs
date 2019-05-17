@@ -1,19 +1,22 @@
 import React from 'react';
 import LogDateSet from './LogDateSet';
+import LoggerComponent from './LoggerComponent';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class LoggerScene extends React.Component {
-
-
     render() {
+        const date = this.props.match.params.date;
         return (
-            <div className="grid-row">
-                <div className="grid-col-4">
-                    <LogDateSet />
-                </div>
-                <div className="grid-col-8">
-                    <SelectDatePrompt />
-                </div>
-            </div>
+            <Grid fluid>
+                <Row>
+                    <Col md={ 4 }>
+                        <LogDateSet />
+                    </Col>
+                    <Col md={ 8 }>
+                        { date ? <LoggerComponent date={ date } /> : <SelectDatePrompt /> }
+                    </Col>
+                </Row>
+            </Grid>
         );
     }
 }

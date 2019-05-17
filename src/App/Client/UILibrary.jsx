@@ -11,7 +11,7 @@ import projectsAndTasks from 'App/Client/Mocks/projectsAndTasks';
 import worklogs from 'App/Client/Mocks/worklogs';
 
 const UILibrary = () => (
-    <div className="container">
+    <div className="app-container">
         <h1>Worklogs UI Library</h1>        
 
         <Grid fluid>
