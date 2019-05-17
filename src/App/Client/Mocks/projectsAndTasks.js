@@ -1,4 +1,4 @@
-[
+const projectsAndTasks = [
     {
         "id": "P-000002",
         "name": "Project Juniper",
@@ -18,4 +18,6 @@
             { "id": "PT-000004", "name": "Meeting" }
         ]
     }
-]
+];
+
+export default projectsAndTasks;

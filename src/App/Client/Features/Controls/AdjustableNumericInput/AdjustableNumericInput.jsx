@@ -41,8 +41,8 @@ class AdjustableNumericInput extends React.Component {
         this.setState({ value: ++currentValue });
     }
 
-    handleInputChange(evt) {
-        const value = evt.target.value;
+    handleInputChange(e) {
+        const value = e.target.value;
         const valueIsNumeric = /^\d+$/.test(value);
         const valueIsExceedingMax = value >= this.maxValue;
         

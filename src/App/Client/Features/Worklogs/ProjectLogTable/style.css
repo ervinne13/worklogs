@@ -1,0 +1,25 @@
+.project-log-table {
+    width: 100%;
+    margin: 18px 5px;
+    border-collapse: collapse;
+}
+
+.project-log-table tbody {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.project-log-table td:nth-child(1) {
+    min-width: 30%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.project-log-table td:nth-child(2) {
+    min-width: 50%;
+}
+
+.project-log-table td:nth-child(3) {
+    min-width: 20%;
+    text-align: right;
+}

@@ -12,7 +12,7 @@ const HoursAndMinutes = ({ minutes }) => {
 
     return (
         <Fragment>
-            { hoursDisplay } { minsDisplay } Logged
+            { hoursDisplay } { minsDisplay }
         </Fragment>
     );
 };
