@@ -1,19 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HoursAndMinutes from 'App/Client/Features/Worklogs/HoursAndMinutes';
 import Moment from 'react-moment'
+import moment from 'moment';
 import './style.css';
 
 const CalendarLinkItemComponent = ({ loggedMins, date }) => {
     const dateObj = new Date(date);
+    const dateString = moment(dateObj).format("YYYY-MM-DD");
 
     return (
-        <div className="calendar-link-item">
-            <div className="calendar-link-item-content">
-                <DayOfWeek date={ dateObj } />
-                <TimeLogged loggedMins={ loggedMins } />
+        <Link to={ `/log/${dateString}` }>
+            <div className="calendar-link-item">
+                <div className="calendar-link-item-content">
+                    <DayOfWeek date={ dateObj } />
+                    <TimeLogged loggedMins={ loggedMins } />
+                </div>
+                <DayOfMonth date={ dateObj} />
             </div>
-            <DayOfMonth date={ dateObj} />
-        </div>
+        </Link>
     );
 };
 
@@ -25,9 +30,17 @@ const DayOfWeek = ({ date }) => {
     );
 };
 
-const TimeLogged = ({ loggedMins }) => {    
+const TimeLogged = ({ loggedMins }) => {
+    
+    const timeLoggedDisplay =  
+        loggedMins > 0 ? 
+            <HoursAndMinutes minutes={ loggedMins } />
+            :
+            "No time";
+    
+    
     return (
-        <span className="time-logged"><HoursAndMinutes minutes={ loggedMins } /> Logged</span>
+        <span className="time-logged">{ timeLoggedDisplay } Logged</span>
     );
 };
 

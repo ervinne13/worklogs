@@ -1,4 +1,6 @@
 import React from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 import CalendarLinkItem from 'App/Client/Features/Calendar/CalendarLinkItem';
 import StatusHeader from 'App/Client/Features/Worklogs/StatusHeader';
 import ProjectTaskSelector from 'App/Client/Features/Worklogs/ProjectTaskSelector';
@@ -12,68 +14,71 @@ const UILibrary = () => (
     <div className="container">
         <h1>Worklogs UI Library</h1>        
 
-        <div clasName="grid-row">
-            <h3>Big Buttons</h3>
-            <div className="grid-col-4">
-                <button className="call-to-action -lightgreen shadowed">Add to Logs</button>
-            </div>
-        </div>
+        <Grid fluid>
+            <Row>
+                <Col md={ 4 }>
+                    <h3>Big Buttons</h3>
+                    <button className="call-to-action -lightgreen shadowed">Add to Logs</button>
+                </Col>
+            </Row>
 
-        <div clasName="grid-row">
-            <h3>Small Buttons</h3>
-            <div className="grid-col-4">
-                <button className="table-row-button">Edit</button>
+            <Row>
+                <Col md={ 4 }>
+                    <h3>Small Buttons</h3>
+                    <button className="table-row-button">Edit</button>
 
-                <button className="table-row-button">X</button>
-            </div>
-        </div>
+                    <button className="table-row-button">X</button>
+                </Col>
+            </Row>
 
-        <div clasName="grid-row">
-            <h3>Calendar Link Item</h3>
-            <div className="grid-col-5">
-                {calendarLinkItemDataSamples.map((data, key) => (
-                    <div className="bordered-overlapping" key={ key } >
-                        <CalendarLinkItem { ...data } />
+            <Row>
+                <Col md={ 5 }>
+                    <h3>Calendar Link Item</h3>
+                    {calendarLinkItemDataSamples.map((data, key) => (
+                        <div className="bordered-overlapping" key={ key } >
+                            <CalendarLinkItem { ...data } />
+                        </div>
+                    ))}
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={ 8 }>
+                    <h3>Worklog Status Header</h3>
+                    <b>Using Date Object `new Date('2019-05-06')`</b>
+                    <StatusHeader date={ new Date('2019-05-06') } loggedMins={ 467 }/>
+
+                    <b>Using Date String `2019-05-20`</b>
+                    <StatusHeader date={ '2019-05-20' } loggedMins={ 500 }/>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={ 12 }>
+                    <h3>Projects & Tasks, Adjustable Numeric Input</h3>
+                </Col>
+
+                <Col md={ 5 }>
+                    <div className="vspaced-children-10">
+                        <ProjectTaskSelector projects={ projectsAndTasks } />
                     </div>
-                ))}
-            </div>
-        </div>
+                </Col>
 
-        <div clasName="grid-row">
-            <h3>Worklog Status Header</h3>
+                <Col md={ 3 }>
+                    <div className="vspaced-children-10">
+                        <AdjustableNumericInput />
+                        <AdjustableNumericInput />
+                    </div>
+                </Col>
+            </Row>
 
-            <div className="grid-col-8">
-                <b>Using Date Object `new Date('2019-05-06')`</b>
-                <StatusHeader date={ new Date('2019-05-06') } loggedMins={ 467 }/>
-
-                <b>Using Date String `2019-05-20`</b>
-                <StatusHeader date={ '2019-05-20' } loggedMins={ 500 }/>
-            </div>
-        </div>
-
-        <div clasName="grid-row">
-            <h3>Projects & Tasks, Adjustable Numeric Input</h3>
-
-            <div className="grid-col-5">
-                <div className="vspaced-children-10">
-                    <ProjectTaskSelector projects={ projectsAndTasks } />
-                </div>
-            </div>
-
-            <div className="grid-col-3" style={{ marginTop: '5px' }}>
-                <div className="vspaced-children-10">
-                    <AdjustableNumericInput />
-                    <AdjustableNumericInput />
-                </div>
-            </div>
-        </div>
-
-        <div clasName="grid-row">
-            <h3>Project Table</h3>
-            <div className="grid-col-7">
-                <ProjectLogTable worklogs={ worklogs }/>
-            </div>
-        </div>
+            <Row>
+                <Col md={ 7 }>
+                    <h3>Project Table</h3>
+                    <ProjectLogTable worklogs={ worklogs }/>
+                </Col>
+            </Row>
+        </Grid>
     </div>
 );
 
@@ -85,6 +90,10 @@ const calendarLinkItemDataSamples = [
     {
         loggedMins: 6 * 60,
         date: '2019-05-07'
+    },
+    {
+        loggedMins:0,
+        date: '2019-05-08'
     }
 ];
 
