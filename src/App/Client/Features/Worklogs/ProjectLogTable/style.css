@@ -2,21 +2,22 @@
     width: 100%;
     margin: 18px 5px;
     border-collapse: collapse;
+    color: #7E7E7E;
 }
 
 .project-log-table tbody {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .project-log-table td:nth-child(1) {
     width: 30%;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: bold;    
 }
 
 .project-log-table td:nth-child(2) {
-    min-width: 50%;
+    min-width: 50%;    
 }
 
 .project-log-table td:nth-child(3) {
