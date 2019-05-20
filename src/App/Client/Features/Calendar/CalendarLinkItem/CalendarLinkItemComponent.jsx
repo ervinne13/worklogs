@@ -22,7 +22,7 @@ const CalendarLinkItemComponent = ({ loggedMins, date }) => {
     );
 };
 
-const DayOfWeek = ({ date }) => {
+const DayOfWeek = ({ date }) => {    
     return (
         <span className="day-of-week">
             <Moment format="dddd">{ date }</Moment>
@@ -31,13 +31,11 @@ const DayOfWeek = ({ date }) => {
 };
 
 const TimeLogged = ({ loggedMins }) => {
-    
     const timeLoggedDisplay =  
         loggedMins > 0 ? 
             <HoursAndMinutes minutes={ loggedMins } />
             :
             "No time";
-    
     
     return (
         <span className="time-logged">{ timeLoggedDisplay } Logged</span>

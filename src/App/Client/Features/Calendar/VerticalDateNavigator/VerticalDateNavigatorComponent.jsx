@@ -24,9 +24,13 @@ class VerticalDateNavigatorComponent extends React.Component {
         const { displayDateSet } = this.state;
 
         return (
-            <div className="vertical-date-navigator">
-                {displayDateSet.map(date => <CalendarLinkItem date={ date } key={ date.toString() } />)}
-            </div>
+            <ul className="vertical-date-navigator">
+                {displayDateSet && displayDateSet.map(date => (
+                    <li key={ date.toString() } >
+                        <CalendarLinkItem date={ date } />
+                    </li>
+                ))}
+            </ul>
         );
     }
 }

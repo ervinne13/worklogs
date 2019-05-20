@@ -3,11 +3,13 @@ import ProjectLogTable from 'App/Client/Features/Worklogs/ProjectLogTable';
 
 const DailyWorklogsTableSet = ({ worklogs }) => {
     const groupedWorklogs = groupByProject(worklogs);    
-    return Object.values(groupedWorklogs).map((worklogsByProject, worklogId) => <ProjectLogTable worklogs={ worklogsByProject } key={ worklogId } />);
+    return Object.values(groupedWorklogs).map((worklogsByProject, worklogId) => 
+        <ProjectLogTable worklogs={ worklogsByProject } key={ worklogId } />
+    );
 };
 
 const groupByProject = (worklogs) => {
-    let groupedWorklogs = [];
+    let groupedWorklogs = [];    
 
     worklogs.forEach(log => {
         const id = log.project.id;

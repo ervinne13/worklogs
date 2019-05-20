@@ -94,3 +94,8 @@ code {
 .m-t-18 {
   margin-top: 18px;
 }
+
+/* Fix for large margin in react flexbox grid */
+.row {
+  width: 100%;
+}

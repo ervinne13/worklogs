@@ -11,7 +11,7 @@ class AdjustableNumericInput extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setDefaultNameIfUnset();
         this.setDefaultMaxValue();
     }
@@ -64,7 +64,7 @@ class AdjustableNumericInput extends React.Component {
         return(
             <div className={ `adj-numeric-input ${ this.props.className }` }>
                 <div className="nameWrap">
-                    {this.state.label}
+                    { this.state.label }
                 </div>
                 <div className="square">
                     <button onClick={ this.handleDecrease }>-</button>

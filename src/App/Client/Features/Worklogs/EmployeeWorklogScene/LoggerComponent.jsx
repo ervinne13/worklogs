@@ -15,7 +15,7 @@ class LoggerComponent extends React.Component {
         return (
             <Fragment>
                 <StatusHeader date={ date } loggedMins={ 467 }/>                
-                <WorklogForm />
+                <WorklogForm />                
                 <DailyWorklogsTableSet worklogs={ worklogsMultiProject } />
             </Fragment>
         );
