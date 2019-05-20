@@ -1,7 +1,8 @@
 import React from 'react';
+import './style.css';
 import CalendarLinkItem from 'App/Client/Features/Calendar/CalendarLinkItem';
 
-class LogDateSet extends React.Component {
+class VerticalDateNavigatorComponent extends React.Component {
     state = {
         displayDateSet: []
     }
@@ -23,7 +24,7 @@ class LogDateSet extends React.Component {
         const { displayDateSet } = this.state;
 
         return (
-            <div>
+            <div className="vertical-date-navigator">
                 {displayDateSet.map(date => <CalendarLinkItem date={ date } key={ date.toString() } />)}
             </div>
         );
@@ -43,4 +44,4 @@ const weekDayDateSetGenerator = (referenceDate) => {
     return weekDayDateSet;
 };
 
-export default LogDateSet;
+export default VerticalDateNavigatorComponent;

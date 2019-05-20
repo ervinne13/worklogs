@@ -62,7 +62,7 @@ class AdjustableNumericInput extends React.Component {
 
 	render(){	
         return(
-            <div className="adj-numeric-input">
+            <div className={ `adj-numeric-input ${ this.props.className }` }>
                 <div className="nameWrap">
                     {this.state.label}
                 </div>

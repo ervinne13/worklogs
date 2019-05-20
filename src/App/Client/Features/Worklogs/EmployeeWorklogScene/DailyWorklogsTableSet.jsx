@@ -3,7 +3,7 @@ import ProjectLogTable from 'App/Client/Features/Worklogs/ProjectLogTable';
 
 const DailyWorklogsTableSet = ({ worklogs }) => {
     const groupedWorklogs = groupByProject(worklogs);    
-    return Object.values(groupedWorklogs).map(worklogsByProject => <ProjectLogTable worklogs={ worklogsByProject } />);
+    return Object.values(groupedWorklogs).map((worklogsByProject, worklogId) => <ProjectLogTable worklogs={ worklogsByProject } key={ worklogId } />);
 };
 
 const groupByProject = (worklogs) => {

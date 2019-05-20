@@ -86,3 +86,11 @@ code {
 .text-bold {
   font-weight: bold;
 }
+
+.float-right {
+  float: right;
+}
+
+.m-t-18 {
+  margin-top: 18px;
+}

@@ -45,13 +45,14 @@ class ProjectTaskSelector extends React.Component {
             <Fragment>
                 <Select 
                     name="selectedProject" 
+                    isSearchable={ true }
                     options={ this.state.options.projects } 
                     onChange={ this.onProjectSelected } />
 
                 <Select 
                     name="selectedTask" 
-                    options={ this.state.options.tasks } 
-                     />
+                    isSearchable={ true }
+                    options={ this.state.options.tasks } />
             </Fragment>
         );
     }

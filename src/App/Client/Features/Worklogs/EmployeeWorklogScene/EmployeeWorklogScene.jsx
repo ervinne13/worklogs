@@ -1,16 +1,16 @@
 import React from 'react';
-import LogDateSet from './LogDateSet';
-import LoggerComponent from './LoggerComponent';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import VerticalDateNavigator from 'App/Client/Features/Calendar/VerticalDateNavigator';
+import LoggerComponent from './LoggerComponent';
 
-class LoggerScene extends React.Component {
+class EmployeeWorklogScene extends React.Component {
     render() {
         const date = this.props.match.params.date;
         return (
             <Grid fluid>
                 <Row>
                     <Col md={ 4 }>
-                        <LogDateSet />
+                        <VerticalDateNavigator />
                     </Col>
                     <Col md={ 8 }>
                         { date ? <LoggerComponent date={ date } /> : <SelectDatePrompt /> }
@@ -25,4 +25,4 @@ const SelectDatePrompt = () => (
     <h1>Please Select a Date</h1>
 );
 
-export default LoggerScene;
+export default EmployeeWorklogScene;

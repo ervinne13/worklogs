@@ -48,6 +48,7 @@ const RowActions = ({ log }) => {
     return (
         <Fragment>
             <HoursAndMinutes minutes={ log.loggedMins } />
+            <button className="table-row-button">Edit</button>
             <button className="table-row-button">X</button>
         </Fragment>
     );
