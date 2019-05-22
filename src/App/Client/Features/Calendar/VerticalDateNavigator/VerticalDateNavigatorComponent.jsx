@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import './style.css';
 import CalendarLinkItem from 'App/Client/Features/Calendar/CalendarLinkItem';
-import CaretDown from 'App/Client/Features/Icons/CaretDown';
-import CaretUp from 'App/Client/Features/Icons/CaretUp';
+import Caret from 'App/Client/Features/Icons/Caret';
 
 import looseDate from 'App/Client/Common/PropTypes/looseDate';
 
@@ -76,21 +75,10 @@ class VerticalDateNavigatorComponent extends React.Component {
 }
 
 const Navigator = ({ direction, onClick }) => (
-    <button className="navigation-button" onClick={ onClick } >
-        <NavigatorIcon direction={ direction } />
+    <button className="navigation-button" onClick={ onClick } >        
+        <Caret direction={ direction } />
     </button>
 );
-
-const NavigatorIcon = ({ direction }) => {
-    switch(direction) {
-        case 'down':
-            return <CaretDown />
-        case 'up':
-            return <CaretUp />
-        default:
-            throw new Error(`Invalid navigator direction "${direction}" in VerticalDateNavigatorComponent`);
-    }
-};
 
 VerticalDateNavigatorComponent.propTypes = {
     selectedDate: looseDate
