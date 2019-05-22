@@ -33,7 +33,7 @@
 tr.worklog-table-row.-is-loading {
     animation: easeIn 0.5s linear;
     background: linear-gradient(180deg, #FE9A6B, #faa37b);
-    color: white;    
+    color: white;
 }
 
 @keyframes easeIn {
@@ -56,6 +56,7 @@ tr.worklog-table-row.-is-saved {
 @keyframes easeOutBackgroundColor {
     0% {
         background: #FE9A6B;
+        color: white;
     }
 
     50%{
@@ -63,6 +64,6 @@ tr.worklog-table-row.-is-saved {
     }
 
     100%{
-        background-color: inherit;        
+        background-color: inherit;
     }
 }
