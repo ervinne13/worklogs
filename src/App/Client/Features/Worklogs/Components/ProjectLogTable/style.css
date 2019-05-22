@@ -25,3 +25,44 @@
     min-width: 180px;
     text-align: right;
 }
+
+.worklog-actions {
+    margin-left: 4px;
+}
+
+tr.worklog-table-row.-is-loading {
+    animation: easeIn 0.5s linear;
+    background: linear-gradient(180deg, #FE9A6B, #faa37b);
+    color: white;    
+}
+
+@keyframes easeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);        
+    }
+}
+
+
+tr.worklog-table-row.-is-saved {
+    animation: easeOutBackgroundColor 1s linear;    
+}
+
+@keyframes easeOutBackgroundColor {
+    0% {
+        background: #FE9A6B;
+    }
+
+    50%{
+        background: #faa37b;
+    }
+
+    100%{
+        background-color: inherit;        
+    }
+}

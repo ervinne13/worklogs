@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import HoursAndMinutes from 'App/Client/Common/Components/HoursAndMinutes';
+import Loading from 'App/Client/Common/Icons/Loading';
+import WorkLogActions from 'App/Client/Features/Worklogs/Components/WorkLogActions';
 import './style.css'
 
 const ProjectLogTableComponent = ({ worklogs }) => {
@@ -34,23 +36,26 @@ const ProjectLogTableComponent = ({ worklogs }) => {
 const Row = ({ log, showsProject }) => {
 
     const project = showsProject ? log.project.name : "";
+    const isSaving = log.status === 'awaiting_persistence';
+    const isSaved = log.status === 'saved';
+
+    let rowIndicatorClass = '';
+
+    if (isSaving) {
+        rowIndicatorClass = '-is-loading';
+    } else if (isSaved) {
+        rowIndicatorClass = '-is-saved';
+    }
 
     return (
-        <tr>
+        <tr className={ `worklog-table-row ${ rowIndicatorClass }` }>
             <td>{ project }</td>
-            <td>{ log.task.name }</td>
-            <td><RowActions log={ log } /></td>
+            <td>{ log.task.name } { isSaving ? '(saving)' : '' } </td>
+            <td>
+                <HoursAndMinutes minutes={ log.loggedMins } />
+                { isSaving ? <Loading size="24px" /> : <WorkLogActions worklog={ log } /> }
+            </td>
         </tr>
-    );
-};
-
-const RowActions = ({ log }) => {
-    return (
-        <Fragment>
-            <HoursAndMinutes minutes={ log.loggedMins } />
-            <button className="table-row-button">Edit</button>
-            <button className="table-row-button">X</button>
-        </Fragment>
     );
 };
 

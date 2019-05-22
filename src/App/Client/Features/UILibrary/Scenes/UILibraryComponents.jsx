@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import CalendarLinkItem from 'App/Client/Features/Calendar/Components/CalendarLinkItem';
@@ -9,6 +9,7 @@ import ProjectLogTable from 'App/Client/Features/Worklogs/Components/ProjectLogT
 import Caret from 'App/Client/Common/Icons/Caret';
 
 import worklogs from 'App/Client/Mocks/worklogs';
+import ProjectLogCard from 'App/Client/Features/Worklogs/Components/ProjectLogCard';
 
 const UILibraryComponents = () => (
     <div className="app-container">
@@ -90,13 +91,81 @@ const UILibraryComponents = () => (
             </Row>
 
             <Row>
-                <Col md={ 7 }>
+                <Col md={ 10 }>
                     <h2>Project Table</h2>
                     <ProjectLogTable worklogs={ worklogs }/>
+
+                    <h2>Project Table (Waiting Persistence)</h2>
+                    <ProjectLogTableTester />
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={ 4 }>
+                    <h2>Project Card</h2>
+                    <ProjectLogCard worklogs={ worklogs }/>
                 </Col>
             </Row>
         </Grid>
     </div>
 );
+
+class ProjectLogTableTester extends React.Component {
+    state = {
+        worklogs,
+        nextId: 0        
+    };
+
+    componentDidMount() {
+        const nextId = this.state.worklogs.length;
+        this.setState({ nextId });
+    }
+
+    addDummyWorklog = () => {
+        let { nextId } = this.state;
+
+        const randomFrom = 30;
+        const randomTo = 180;
+        const loggedMins = Math.random() * (+randomTo - +randomFrom) + +randomFrom; 
+
+        const dummyWorklog = {
+            loggedMins,
+            id: ++nextId,
+            status: 'awaiting_persistence',
+            project: { id: "P-000002", name: "Project Juniper" },
+            task: { id: "PT-000004", name: "Internal Meeting" },            
+        };
+
+        const worklogs = [ ...this.state.worklogs, dummyWorklog ];        
+        this.setState({ nextId, worklogs });
+    }
+
+    setLoadingRowsDone = () => {
+        let worklogs = [ ...this.state.worklogs ].map(worklog => {
+            if (worklog.status === 'awaiting_persistence') {
+                worklog.status = 'saved';
+            }
+
+            return worklog;
+        });
+
+        this.setState({ worklogs });
+    }
+
+    reset = () => {
+        this.setState({ worklogs });
+    }
+
+    render() {
+        return (
+            <Fragment>
+                <ProjectLogTable worklogs={ this.state.worklogs }/>
+                <button onClick={ this.addDummyWorklog } >Add Item</button>
+                <button onClick={ this.setLoadingRowsDone } >Set Added Item(s) Done</button>
+                <button onClick={ this.reset } >Reset</button>
+            </Fragment>
+        );
+    }
+}
 
 export default UILibraryComponents;

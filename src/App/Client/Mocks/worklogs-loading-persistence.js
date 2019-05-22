@@ -12,6 +12,13 @@ const worklogs = [
         project: { id: "P-000002", name: "Project Juniper" },
         task: { id: "PT-000003", name: "Document Creation" },
         loggedMins: 120
+    },
+    {
+        id: 3,
+        status: 'awaiting_persistence',
+        project: { id: "P-000002", name: "Project Juniper" },
+        task: { id: "PT-000004", name: "Internal Meeting" },
+        loggedMins: 65
     }
 ];
 

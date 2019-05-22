@@ -7,10 +7,13 @@
     padding-right: 22px;
 
     overflow: auto;
+    color: black;
+    cursor: pointer;
 }
  
 .calendar-link-item.-is-active {
     background-color: #019fe9;
+    color: white;
 }
 
 .calendar-link-item-content {
@@ -18,7 +21,6 @@
 }
 
 .calendar-link-item-content > .day-of-week {
-    color: black;
     display: block;
     font-size: 22px;
     font-weight: semibold;
@@ -26,7 +28,6 @@
 
 
 .calendar-link-item-content > .time-logged {
-    color: black;
     display: block;
     font-size: 18px;
 }
@@ -40,5 +41,5 @@
 }
 
 .calendar-link-item.-is-active > .day-of-month {
-    color: black;
+    color: white;
 }
