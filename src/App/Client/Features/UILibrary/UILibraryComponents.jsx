@@ -34,11 +34,15 @@ const UILibraryComponents = () => (
             <Row>
                 <Col md={ 5 }>
                     <h3>Calendar Link Item</h3>
-                    {calendarLinkItemDataSamples.map((data, key) => (
-                        <div className="bordered-overlapping" key={ key } >
-                            <CalendarLinkItem { ...data } />
-                        </div>
-                    ))}
+
+                    <b>Using Date Object `new Date('2019-05-06')`</b>
+                    <CalendarLinkItem loggedMins={ 72 } date= { new Date('2019-05-06') } />
+
+                    <b>Using Date String '2019-05-20'</b>
+                    <CalendarLinkItem loggedMins={ 50 } date= { '2019-05-20' } />
+
+                    <b>"Active" State</b>
+                    <CalendarLinkItem loggedMins={ 120 } date= { '2019-05-21' } isActive={ true } />
                 </Col>
             </Row>
 
@@ -46,10 +50,13 @@ const UILibraryComponents = () => (
                 <Col md={ 8 }>
                     <h3>Worklog Status Header</h3>
                     <b>Using Date Object `new Date('2019-05-06')`</b>
-                    <StatusHeader date={ new Date('2019-05-06') } loggedMins={ 467 }/>
+                    <StatusHeader date={ new Date('2019-05-06') } loggedMins={ 467 } />
 
                     <b>Using Date String `2019-05-20`</b>
-                    <StatusHeader date={ '2019-05-20' } loggedMins={ 500 }/>
+                    <StatusHeader date={ '2019-05-20' } loggedMins={ 500 } />
+
+                    <b>Time logged is 0</b>
+                    <StatusHeader date={ '2019-05-21' } loggedMins={ 0 } />
                 </Col>
             </Row>
 
@@ -81,22 +88,5 @@ const UILibraryComponents = () => (
         </Grid>
     </div>
 );
-
-const calendarLinkItemDataSamples = [
-    {
-        loggedMins: 72,
-        date: '2019-05-06'
-    },
-    {
-        loggedMins: 6 * 60,
-        date: '2019-05-07'
-    },
-    {
-        loggedMins:0,
-        date: '2019-05-08'
-    }
-];
-
-
 
 export default UILibraryComponents;

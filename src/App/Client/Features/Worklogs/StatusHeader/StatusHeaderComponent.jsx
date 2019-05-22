@@ -3,8 +3,10 @@ import Moment from 'react-moment';
 import HoursAndMinutes from 'App/Client/Features/Worklogs/HoursAndMinutes';
 import './style.css';
 
-const StatusHeaderComponent = ({ date, loggedMins }) => {
-    const dateObj = date instanceof Date ? date : new Date(date);
+import looseDate from 'App/Client/Common/PropTypes/looseDate';
+
+const StatusHeaderComponent = ({ date, loggedMins = 0 }) => {
+    const dateObj = new Date(date);    
 
     return (
         <div className="status-header">
@@ -14,15 +16,31 @@ const StatusHeaderComponent = ({ date, loggedMins }) => {
                 </p>
             </div>
             <div className="total-time-logged">
-                <p>
-                    Total time logged: 
-                    <span className="time">
-                        <HoursAndMinutes minutes={ loggedMins } />
-                    </span>
-                </p>
+                <TotalTimeLogged loggedMins={ loggedMins } />
             </div>
         </div>
     );
+};
+
+const TotalTimeLogged = ({ loggedMins }) => {
+    if (loggedMins > 0) {
+        return (
+            <p>
+                Total time logged: 
+                <span className="time">
+                    <HoursAndMinutes minutes={ loggedMins } />
+                </span>
+            </p>
+        );
+    } else {
+        return (
+            <p>No time logged yet</p>
+        );
+    }
+};
+
+StatusHeaderComponent.propTypes = {
+    date: looseDate
 };
 
 export default StatusHeaderComponent;

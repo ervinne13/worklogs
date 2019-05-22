@@ -9,6 +9,10 @@
     overflow: auto;
 }
  
+.calendar-link-item.-is-active {
+    background-color: #019fe9;
+}
+
 .calendar-link-item-content {
     display: inline-block;
 }
@@ -33,4 +37,8 @@
     font-weight: bold;
 
     color: #8D8D8D;
+}
+
+.calendar-link-item.-is-active > .day-of-month {
+    color: black;
 }

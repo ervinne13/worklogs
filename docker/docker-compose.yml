@@ -1,0 +1,26 @@
+version: "3.2"
+
+services:
+  worklogs:
+    build:
+      context: ./docker-config
+      labels:
+        maintainer: "Ervinne Sodusta <ervinne.sodusta@nuworks.ph>"
+    image: worklogs:latest
+    environment:
+        - NODE_ENV=development
+    container_name: worklogs
+    volumes:
+      # host:container
+       - ${LOCAL_PATH}:/var/www/vhost/app/products/worklogs
+    networks:
+       default:
+          ipv4_address: 192.168.13.5
+    tty: true
+    stdin_open: true
+    extra_hosts:
+      - "worklogs.local:192.168.13.5"
+networks:
+  default:
+    external:
+      name: docker-bridge-local

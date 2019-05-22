@@ -5,13 +5,13 @@ import Moment from 'react-moment'
 import moment from 'moment';
 import './style.css';
 
-const CalendarLinkItemComponent = ({ loggedMins, date }) => {
+const CalendarLinkItemComponent = ({ loggedMins, date, isActive }) => {
     const dateObj = new Date(date);
     const dateString = moment(dateObj).format("YYYY-MM-DD");
 
     return (
         <Link to={ `/log/${dateString}` }>
-            <div className="calendar-link-item">
+            <div className={ `calendar-link-item ${ isActive ? "-is-active" : "" }` }>
                 <div className="calendar-link-item-content">
                     <DayOfWeek date={ dateObj } />
                     <TimeLogged loggedMins={ loggedMins } />
