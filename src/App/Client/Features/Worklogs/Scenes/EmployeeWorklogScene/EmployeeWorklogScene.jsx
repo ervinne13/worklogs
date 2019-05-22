@@ -3,8 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import VerticalDateNavigator from 'App/Client/Features/Calendar/Components/VerticalDateNavigator';
 import StatusHeader from 'App/Client/Features/Worklogs/Components/StatusHeader';
 import WorklogForm from 'App/Client/Features/Worklogs/Forms/WorklogForm';
-import DailyWorklogsTableSet from './DailyWorklogsTableSet';
-
+import UserDayWorklogs from './UserDayWorklogs';
 
 //  TODO: Remove mocks later
 import worklogsMultiProject from 'App/Client/Mocks/worklogsMultiProject';
@@ -34,7 +33,7 @@ const MainContent = ({ selectedDate, loggedMins }) => {
             <Fragment>
                 <StatusHeader date={ selectedDate } loggedMins={ loggedMins } />
                 <WorklogForm logDate={ selectedDate } />
-                <DailyWorklogsTableSet worklogs={ worklogsMultiProject } />
+                <UserDayWorklogs worklogs={ worklogsMultiProject } />
             </Fragment>
         );
     } else {

@@ -1,0 +1,35 @@
+
+.project-worklogs-card {
+    color: #7E7E7E;
+    border-top: 1px solid #7E7E7E;
+    border-bottom: 1px solid #7E7E7E;
+    margin-top: -1px;
+}
+
+.worklog-project-name {     
+    text-transform: uppercase;
+}
+
+.project-worklogs li {
+    list-style-type: none;
+    margin-bottom: 8px;
+}
+
+.worklog-task-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.worklog-logged-mins {
+    font-size: 13px;
+}
+
+.worklog-actions {
+    float: right;
+}
+
+.worklog-project-total-logged-mins {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}
