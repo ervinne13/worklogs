@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import HoursAndMinutes from 'App/Client/Features/Worklogs/HoursAndMinutes';
+import HoursAndMinutes from 'App/Client/Common/Components/HoursAndMinutes';
 import './style.css'
 
 const ProjectLogTableComponent = ({ worklogs }) => {

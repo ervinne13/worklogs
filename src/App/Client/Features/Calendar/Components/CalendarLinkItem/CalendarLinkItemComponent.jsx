@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import HoursAndMinutes from 'App/Client/Features/Worklogs/HoursAndMinutes';
+import HoursAndMinutes from 'App/Client/Common/Components/HoursAndMinutes';
 import Moment from 'react-moment'
 import moment from 'moment';
 import './style.css';

@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import ProjectTaskSelector from 'App/Client/Features/Worklogs/ProjectTaskSelector';
-import AdjustableNumericInput from 'App/Client/Features/Controls/AdjustableNumericInput';
+import ProjectTaskSelector from 'App/Client/Features/Worklogs/Components/ProjectTaskSelector';
+import AdjustableNumericInput from 'App/Client/Common/Components/AdjustableNumericInput';
 
 //  TODO: remove later
 import projectsAndTasks from 'App/Client/Mocks/projectsAndTasks';

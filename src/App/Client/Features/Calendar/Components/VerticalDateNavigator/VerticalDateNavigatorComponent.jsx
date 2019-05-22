@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import './style.css';
-import CalendarLinkItem from 'App/Client/Features/Calendar/CalendarLinkItem';
-import Caret from 'App/Client/Features/Icons/Caret';
+import CalendarLinkItem from 'App/Client/Features/Calendar/Components/CalendarLinkItem';
+import Caret from 'App/Client/Common/Icons/Caret';
 
 import looseDate from 'App/Client/Common/PropTypes/looseDate';
 
 /**
- *  @props selectedDate     (Optional) The date that should be highlighted
+ *  @prop selectedDate     (Optional) The date that should be highlighted
  */
 class VerticalDateNavigatorComponent extends React.Component {
     state = {

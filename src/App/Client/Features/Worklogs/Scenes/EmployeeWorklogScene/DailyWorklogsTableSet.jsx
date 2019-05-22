@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectLogTable from 'App/Client/Features/Worklogs/ProjectLogTable';
+import ProjectLogTable from 'App/Client/Features/Worklogs/Components/ProjectLogTable';
 
 const DailyWorklogsTableSet = ({ worklogs }) => {
     const groupedWorklogs = groupByProject(worklogs);    

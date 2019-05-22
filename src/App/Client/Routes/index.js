@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import UILibraryComponents from 'App/Client/Features/UILibrary/UILibraryComponents';
-import UILibraryCompositeComponents from 'App/Client/Features/UILibrary/UILibraryCompositeComponents';
-import EmployeeWorklogScene from 'App/Client/Features/Worklogs/EmployeeWorklogScene';
+import UILibraryComponents from 'App/Client/Features/UILibrary/Scenes/UILibraryComponents';
+import UILibraryCompositeComponents from 'App/Client/Features/UILibrary/Scenes/UILibraryCompositeComponents';
+import EmployeeWorklogScene from 'App/Client/Features/Worklogs/Scenes/EmployeeWorklogScene';
 
 const Routes = () => (
     <BrowserRouter>

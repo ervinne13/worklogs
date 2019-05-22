@@ -1,6 +1,10 @@
 import React from 'react';
 import './style.css';
 
+/**
+ * @prop label      The label that will be displayed next to the control. Defaults to "Default"
+ * @prop value      The initial value of the input. Defaults to 0.
+ */
 class AdjustableNumericInput extends React.Component {
     state = {
         value: 0,
@@ -14,19 +18,26 @@ class AdjustableNumericInput extends React.Component {
     componentDidMount() {
         this.setDefaultNameIfUnset();
         this.setDefaultMaxValue();
+        this.setValueIfSetOnProps();
     }
 
     setDefaultNameIfUnset = () =>  {
-        if(this.props.label && this.props.label !=="") {
-            this.setState({
-                label: this.props.label,
-            });
+        const { label } = this.props;
+        if(label && label !=="") {
+            this.setState({ label });
         }
     }
 
     setDefaultMaxValue = () =>  {
         const isMaxValueSet = this.props.maxValue;
         this.maxValue = isMaxValueSet ?  this.props.maxValue : 99;
+    }
+
+    setValueIfSetOnProps = () => {
+        const { value } = this.props;
+        if(value && value > 0) {
+            this.setState({ value });
+        }
     }
 
     handleDecrease = () => {
