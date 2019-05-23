@@ -68,15 +68,26 @@ class WorklogForm extends React.Component {
                     <Row>
                         <Col sm={12} md={6} >
                             <div className="vspaced-children-10">
-                                <ProjectSelectInput selectedProject={project} projects={projects} />
-                                <TaskSelectInput selectedTask={task} tasks={tasks} />
+                                <ProjectSelectInput 
+                                    selectedProject={project} 
+                                    projects={projects}
+                                    onProjectSelected={ project => this.onInputValueChanged('project', project) } />
+
+                                <TaskSelectInput 
+                                    selectedTask={task} 
+                                    tasks={tasks} 
+                                    onTaskSelected={ task => this.onInputValueChanged('task', task) } />
                             </div>
                         </Col>
 
                         <Col sm={12} md={3} >
                             <div className="vspaced-children-10" >
-                                <LoggedHoursInput loggedHours={hours} onChange={hours => this.onInputValueChanged('hours', hours)} />
-                                <LoggedMinutesInput loggedMinutes={minutes} onChange={minutes => this.onInputValueChanged('minutes', minutes)} />
+                                <LoggedHoursInput 
+                                    loggedHours={hours} 
+                                    onChange={ hours => this.onInputValueChanged('hours', hours) } />
+                                <LoggedMinutesInput 
+                                    loggedMinutes={minutes} 
+                                    onChange={ minutes => this.onInputValueChanged('minutes', minutes) } />
                             </div>
                         </Col>
 
