@@ -28,7 +28,7 @@ export const getHoursWithUnit = hours => {
 };
 
 export const getMinutesWithUnit = minutes => {
-    return minutes ? `${ minutes } ${ minutes > 1 ? 'Hours' : 'Hour' }` : '';
+    return minutes ? `${ minutes } ${ minutes > 1 ? 'Minutes' : 'Minute' }` : '';
 };
 
 export const configureToIncludeUnits = functionToConfigure => {

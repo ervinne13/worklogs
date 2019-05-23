@@ -8,7 +8,7 @@ import AdjustableNumericInput from 'App/Client/Common/Components/AdjustableNumer
 import ProjectSelectInput from 'App/Client/Common/Components/ProjectSelectInput';
 import TaskSelectInput from 'App/Client/Common/Components/TaskSelectInput';
 
-import { breakDownDurationInMinutesToHoursAndMinutes, getDurationInMinutesFromBreakdown } from 'Domain/Services/WorklogDuration'
+import { breakDownDurationInMinutesToHoursAndMinutes, getDurationInMinutesFromBreakdown } from 'Domain/Services/Worklogs/WorklogDuration'
 
 class WorklogForm extends React.Component {
     constructor(props) {

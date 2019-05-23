@@ -20,7 +20,7 @@ class EmployeeWorklogScene extends React.Component {
                         <SideBar selectedDate={ selectedDate }/>
                     </Col>
                     <Col md={ 8 }>
-                        <MainContent selectedDate={ selectedDate } loggedMins={ 476 }/>
+                        <MainContent selectedDate={ selectedDate } />
                     </Col>
                 </Row>
             </Grid>
@@ -35,7 +35,7 @@ const MainContent = ({ selectedDate, loggedMins }) => {
             <Fragment>
                 <StatusHeader date={ selectedDate } loggedMins={ loggedMins } />
                 <WorklogForm logDate={ selectedDate } projects={ projects } tasks={ tasks } />
-                <UserDayWorklogs worklogs={ worklogsMultiProject } />
+                <UserDayWorklogs worklogs={ [] } />
             </Fragment>
         );
     } else {

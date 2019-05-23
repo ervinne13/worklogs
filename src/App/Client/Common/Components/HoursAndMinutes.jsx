@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import nonZeroPositiveNumber from 'App/Client/Common/PropTypes/nonZeroPositiveNumber';
-import { breakDownDurationInMinutesToHoursAndMinutes, configureToIncludeUnits } from 'Domain/Services/WorklogDuration';
+import { breakDownDurationInMinutesToHoursAndMinutes, configureToIncludeUnits } from 'Domain/Services/Worklogs/WorklogDuration';
 
 const HoursAndMinutes = ({ durationInMinutes }) => {
     const breakDown = configureToIncludeUnits(breakDownDurationInMinutesToHoursAndMinutes);
