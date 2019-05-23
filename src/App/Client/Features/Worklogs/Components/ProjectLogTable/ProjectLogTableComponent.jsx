@@ -25,7 +25,7 @@ const ProjectLogTableComponent = ({ worklogs }) => {
                     <td></td>
                     <td></td>
                     <td className="text-bold">
-                        <HoursAndMinutes minutes={ totalLoggedMins } />
+                        <HoursAndMinutes durationInMinutes={ totalLoggedMins } />
                     </td>
                 </tr>
             </tfoot>
@@ -52,8 +52,8 @@ const Row = ({ log, showsProject }) => {
             <td>{ project }</td>
             <td>{ log.task.name } { isSaving ? '(saving)' : '' } </td>
             <td>
-                <HoursAndMinutes minutes={ log.loggedMins } />
-                { isSaving ? <Loading size="24px" /> : <WorkLogActions worklog={ log } /> }
+                <HoursAndMinutes durationInMinutes={ log.loggedMins } />
+                { isSaving ? <Loading size="24px" style={{ marginLeft: '8px' }} /> : <WorkLogActions worklog={ log } /> }
             </td>
         </tr>
     );

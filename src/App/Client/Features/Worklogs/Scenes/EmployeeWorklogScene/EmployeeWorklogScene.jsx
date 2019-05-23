@@ -7,6 +7,8 @@ import UserDayWorklogs from './UserDayWorklogs';
 
 //  TODO: Remove mocks later
 import worklogsMultiProject from 'App/Client/Mocks/worklogsMultiProject';
+import projects from 'App/Client/Mocks/projects';
+import tasks from 'App/Client/Mocks/employeeTasks';
 
 class EmployeeWorklogScene extends React.Component {
     render() {
@@ -32,7 +34,7 @@ const MainContent = ({ selectedDate, loggedMins }) => {
         return (
             <Fragment>
                 <StatusHeader date={ selectedDate } loggedMins={ loggedMins } />
-                <WorklogForm logDate={ selectedDate } />
+                <WorklogForm logDate={ selectedDate } projects={ projects } tasks={ tasks } />
                 <UserDayWorklogs worklogs={ worklogsMultiProject } />
             </Fragment>
         );

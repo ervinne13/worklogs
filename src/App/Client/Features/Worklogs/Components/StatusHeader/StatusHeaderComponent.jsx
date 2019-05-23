@@ -32,7 +32,7 @@ const TotalTimeLogged = ({ loggedMins }) => {
             <p>
                 Total time logged: 
                 <span className="time">
-                    <HoursAndMinutes minutes={ loggedMins } />
+                    <HoursAndMinutes durationInMinutes={ loggedMins } />
                 </span>
             </p>
         );

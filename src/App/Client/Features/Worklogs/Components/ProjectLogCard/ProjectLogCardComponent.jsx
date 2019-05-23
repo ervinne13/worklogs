@@ -25,13 +25,13 @@ const ProjectLogCardComponent = ({ worklogs }) => {
                                 <WorkLogActions worklog={ worklog } />
                             </div>
                             <div className="worklog-logged-mins">
-                                <HoursAndMinutes minutes={ worklog.loggedMins } />
+                                <HoursAndMinutes durationInMinutes={ worklog.loggedMins } />
                             </div>                          
                         </li>
                     )) }
                 </ul>
                 <span className="worklog-project-total-logged-mins">
-                    Total: <HoursAndMinutes minutes={ totalLoggedMins } />
+                    Total: <HoursAndMinutes durationInMinutes={ totalLoggedMins } />
                 </span>
             </div>
         </div>

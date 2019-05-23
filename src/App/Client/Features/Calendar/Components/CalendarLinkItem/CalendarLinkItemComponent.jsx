@@ -33,7 +33,7 @@ const DayOfWeek = ({ date }) => {
 const TimeLogged = ({ loggedMins }) => {
     const timeLoggedDisplay =  
         loggedMins > 0 ? 
-            <HoursAndMinutes minutes={ loggedMins } />
+            <HoursAndMinutes durationInMinutes={ loggedMins } />
             :
             "No time";
     

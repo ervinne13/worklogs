@@ -3,7 +3,7 @@ import './style.css';
 import CalendarLinkItem from 'App/Client/Features/Calendar/Components/CalendarLinkItem';
 import Caret from 'App/Client/Common/Icons/Caret';
 
-import looseDate from 'App/Client/Common/PropTypes/looseDate';
+import optionalLooseDate from 'App/Client/Common/PropTypes/optionalLooseDate';
 
 /**
  *  @prop selectedDate     (Optional) The date that should be highlighted
@@ -81,7 +81,7 @@ const Navigator = ({ direction, onClick }) => (
 );
 
 VerticalDateNavigatorComponent.propTypes = {
-    selectedDate: looseDate
+    selectedDate: optionalLooseDate
 };
 
 export default VerticalDateNavigatorComponent;

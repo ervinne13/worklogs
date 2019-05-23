@@ -7,7 +7,7 @@ import './style.css';
  */
 class AdjustableNumericInput extends React.Component {
     state = {
-        value: 0,
+        value: this.props.value,
         label: 'Default'
     }
 
@@ -18,7 +18,7 @@ class AdjustableNumericInput extends React.Component {
     componentDidMount() {
         this.setDefaultNameIfUnset();
         this.setDefaultMaxValue();
-        this.setValueIfSetOnProps();
+        this.setValueIfSetOnProps();        
     }
 
     setDefaultNameIfUnset = () =>  {
@@ -35,32 +35,42 @@ class AdjustableNumericInput extends React.Component {
 
     setValueIfSetOnProps = () => {
         const { value } = this.props;
-        if(value && value > 0) {
+        if(value && value > 0 && value !== this.state.value) {
             this.setState({ value });
+        }
+    }
+
+    triggerOnChange = (value) => {
+        if (this.props.onChange) {
+            this.props.onChange(value);
         }
     }
 
     handleDecrease = () => {
         let currentValue = this.state.value;
         if(currentValue <= 0) return;
-        this.setState({ value: --currentValue });
+        this.setState({ value: --currentValue });        
+        this.triggerOnChange(currentValue);
     }
 
     handleIncrease = () => {
         let currentValue = this.state.value;
         if(currentValue >= this.maxValue) return;
         this.setState({ value: ++currentValue });
+        this.triggerOnChange(currentValue);
     }
 
     handleInputChange(e) {
-        const value = e.target.value;
-        const valueIsNumeric = /^\d+$/.test(value);
-        const valueIsExceedingMax = value >= this.maxValue;
+        let value = e.target.value;
+        const valueIsNumeric = /^\d+$/.test(value) || value === '';
+        const valueIsExceedingMax = value > this.maxValue;
         
         // text instead of number to prevent cursor.
         // Also prevent to delete all text.
         if(valueIsNumeric && !valueIsExceedingMax){
-            this.setState({ value });
+            value = value === '' ? value = 0 : parseInt(value);    //  remove leading zeros or add 0 for blank
+            this.setState({ value });    
+            this.triggerOnChange(value);        
         }
     }
 
@@ -68,10 +78,11 @@ class AdjustableNumericInput extends React.Component {
         const value = this.state.value;
         if(value === ''){
             this.setState({ value: 0 });
+            this.triggerOnChange(0);
         }
     }
 
-	render(){	
+	render(){
         return(
             <div className={ `adj-numeric-input ${ this.props.className }` }>
                 <div className="nameWrap">

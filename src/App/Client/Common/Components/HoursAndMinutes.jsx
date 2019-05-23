@@ -1,22 +1,18 @@
 import React, { Fragment } from 'react';
 import nonZeroPositiveNumber from 'App/Client/Common/PropTypes/nonZeroPositiveNumber';
+import { breakDownDurationInMinutesToHoursAndMinutes, configureToIncludeUnits } from 'Domain/Services/WorklogDuration';
 
-const HoursAndMinutes = ({ minutes }) => {    
-    const hours = Math.floor(minutes / 60);
-    const remMins = Math.round(minutes - (hours * 60));
-
-    const hoursDisplay = `${ hours } ${ hours > 1 ? 'Hours' : 'Hour' }`;
-    const minsDisplay = remMins ? `${ remMins } ${ remMins > 1 ? 'Minutes' : 'Minute' }` : '';
+const HoursAndMinutes = ({ durationInMinutes }) => {
+    const breakDown = configureToIncludeUnits(breakDownDurationInMinutesToHoursAndMinutes);
+    const { hours, minutes } = breakDown(durationInMinutes);
 
     return (
-        <Fragment>
-            { hoursDisplay } { minsDisplay }
-        </Fragment>
+        <Fragment>{ hours } { minutes }</Fragment>
     );
 };
 
 HoursAndMinutes.propTypes = {
-    minutes: nonZeroPositiveNumber
+    durationInMinutes: nonZeroPositiveNumber
 };
 
 export default HoursAndMinutes;
