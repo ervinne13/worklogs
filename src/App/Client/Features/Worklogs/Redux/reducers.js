@@ -1,28 +1,35 @@
 
-import { combineReducers } from 'redux'
-import { ADD_WORKLOG } from 'App/Client/Features/Worklogs/Redux/actions';
+import { ADD_WORKLOG, RECEIVE_WORKLOGS } from 'App/Client/Features/Worklogs/Redux/actions';
 
-const employeeWorklogsReducer = (state = [], action) => {
-    switch(action) {
+const initialState = {
+    worklogs: []
+};
+
+const employeeWorklogsReducer = (state = initialState, action) => {    
+    switch(action.type) {
+        case RECEIVE_WORKLOGS:
+            return handleReceivedWorklogs();
         case ADD_WORKLOG:
             return handleNewWorklog(state, action);
-        default:
+        default:        
             return state;
     }
 };
 
-const handleNewWorklog = (state = [], action) => {
-    const worklog = { ...action.worklog };
-    worklog.id = '';//  TODO
-    worklog.status = 'awaiting_persistence';
-console.log('handleNewWorklog');
-console.log(action);
-    return [
-        ...state,
-        worklog
-    ];
+const handleReceivedWorklogs = (state, action) => {
+    const worklogs = { ...action.worklogs };
+    return { ...state, worklogs }
 };
 
-export default combineReducers({
-    employeeWorklogsReducer
-});
+const handleNewWorklog = (state = [], action) => {
+    const worklog = { ...action.worklog };
+        
+    worklog.status = 'awaiting_persistence';
+
+    return {
+        ...state,
+        worklogs: [ ...state.worklogs, worklog ]
+    }
+};
+
+export default employeeWorklogsReducer;

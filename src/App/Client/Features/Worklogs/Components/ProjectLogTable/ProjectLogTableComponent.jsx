@@ -39,6 +39,8 @@ const Row = ({ log, showsProject }) => {
     const isSaving = log.status === 'awaiting_persistence';
     const isSaved = log.status === 'saved';
 
+    console.log(log);
+
     let rowIndicatorClass = '';
 
     if (isSaving) {

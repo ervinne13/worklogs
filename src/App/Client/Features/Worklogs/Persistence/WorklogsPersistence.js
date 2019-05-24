@@ -1,7 +1,11 @@
 
 import { mapImpl } from 'App/Client/Common/Utilities/ClientPersistence';
-import { saveWorklogOnFirestore } from './WorklogsFirestorePersistence';
+import { saveWorklogToFirestore, loadWorklogsFromFirestore } from './WorklogsFirestorePersistence';
 
 export const saveWorklog = mapImpl({
-    'firestore': saveWorklogOnFirestore
+    'firestore': saveWorklogToFirestore
+});
+
+export const loadWorklogs = mapImpl({
+    'firestore': loadWorklogsFromFirestore
 });
