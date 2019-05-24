@@ -1,4 +1,4 @@
-import { saveWorklog, loadWorklogs } from 'App/Client/Features/Worklogs/Persistence/WorklogsPersistence';
+import { saveWorklog, loadWorklogs as loadWorklogsFromPersistence } from 'App/Client/Features/Worklogs/Persistence/WorklogsPersistence';
 
 /** Action Types */
 export const RECEIVE_WORKLOGS = 'RECEIVE_WORKLOGS';
@@ -10,9 +10,18 @@ export const addWorklog = (worklog) => {
     return function(dispatch) {
         dispatch({ type: ADD_WORKLOG, worklog });
         return saveWorklog(worklog)
-            .then(loadWorklogs)
-            .then(() => {
-                return dispatch({ type: RECEIVE_WORKLOGS, worklog });
+            .then(loadWorklogsFromPersistence)
+            .then(worklogs => {
+                return dispatch({ type: RECEIVE_WORKLOGS, worklogs });
+            });
+    };
+};
+
+export const loadWorklogs = (date) => {
+    return function(dispatch) {
+        return loadWorklogsFromPersistence(date)
+            .then(worklogs => {                
+                return dispatch({ type: RECEIVE_WORKLOGS, worklogs });
             });
     };
 };

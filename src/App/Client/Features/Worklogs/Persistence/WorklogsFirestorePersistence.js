@@ -16,7 +16,10 @@ export const loadWorklogsFromFirestore = (date) => {
             .get()
             .catch(reject)
             .then(querySnapshot => {
-                resolve(querySnapshot.docs.map(doc => doc.data()));
+                resolve(querySnapshot
+                    .docs
+                    .map(doc => doc.data())
+                );
             });
     });    
 };

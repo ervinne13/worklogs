@@ -4,7 +4,7 @@ import { saveWorklogToFirestore, loadWorklogsFromFirestore } from './WorklogsFir
 
 export const saveWorklog = mapImpl({
     'firestore': saveWorklogToFirestore
-});
+})
 
 export const loadWorklogs = mapImpl({
     'firestore': loadWorklogsFromFirestore

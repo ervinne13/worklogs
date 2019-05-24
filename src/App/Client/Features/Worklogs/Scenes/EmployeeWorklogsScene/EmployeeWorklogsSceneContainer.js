@@ -1,11 +1,19 @@
 
 import EmployeeWorklogsScene from './EmployeeWorklogScene';
 import { connect } from 'react-redux';
+import { loadWorklogs } from 'App/Client/Features/Worklogs/Redux/actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        worklogs: state.worklogsReducers.worklogs
+        date: ownProps.match.params.date,
+        ...state.worklogsReducers
     };
 };
 
-export default connect(mapStateToProps)(EmployeeWorklogsScene);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onReadyToReceiveWorklogs: date => dispatch(loadWorklogs(date))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeWorklogsScene);
