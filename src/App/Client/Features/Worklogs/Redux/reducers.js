@@ -1,4 +1,5 @@
 
+import { combineReducers } from 'redux'
 import { ADD_WORKLOG } from 'App/Client/Features/Worklogs/Redux/actions';
 
 const employeeWorklogsReducer = (state = [], action) => {
@@ -12,12 +13,16 @@ const employeeWorklogsReducer = (state = [], action) => {
 
 const handleNewWorklog = (state = [], action) => {
     const worklog = { ...action.worklog };
+    worklog.id = '';//  TODO
     worklog.status = 'awaiting_persistence';
-
+console.log('handleNewWorklog');
+console.log(action);
     return [
         ...state,
         worklog
     ];
 };
 
-export default employeeWorklogsReducer;
+export default combineReducers({
+    employeeWorklogsReducer
+});

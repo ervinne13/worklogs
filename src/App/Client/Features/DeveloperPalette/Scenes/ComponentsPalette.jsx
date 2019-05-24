@@ -10,7 +10,7 @@ import Caret from 'App/Client/Common/Icons/Caret';
 
 import worklogs from 'App/Client/Mocks/worklogs';
 import ProjectLogCard from 'App/Client/Features/Worklogs/Components/ProjectLogCard';
-
+console.log(process.env.REACT_APP_CLIENT_PERSISTENCE_DRIVER);
 const UILibraryComponents = () => (
     <div className="app-container">
         <h1>Worklogs UI Library</h1>        
