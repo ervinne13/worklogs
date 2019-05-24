@@ -1,6 +1,6 @@
 
 import moment from 'moment';
-import TrackingNumberGenerationFailedError from './Errors/TrackingNumberGenerationFailedError';
+import TrackingNumberGenerationFailedError from './Errors/GenerationFailedError';
 
 /**
  *  Generates something like:
