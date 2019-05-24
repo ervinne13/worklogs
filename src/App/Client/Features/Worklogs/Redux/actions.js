@@ -17,7 +17,7 @@ export const addWorklog = (worklog) => {
     };
 };
 
-export const loadWorklogs = (date) => {
+export const loadWorklogs = (date) => {    
     return function(dispatch) {
         return loadWorklogsFromPersistence(date)
             .then(worklogs => {                

@@ -3,7 +3,8 @@ import { ADD_WORKLOG, RECEIVE_WORKLOGS } from 'App/Client/Features/Worklogs/Redu
 
 const initialState = {
     worklogsLoading: true,
-    worklogs: []
+    worklogs: [],
+    loggedMins: 0
 };
 
 const employeeWorklogsReducer = (state = initialState, action) => {    
@@ -20,12 +21,13 @@ const employeeWorklogsReducer = (state = initialState, action) => {
 const handleReceivedWorklogs = (state, action) => {
     const worklogs = [ ...action.worklogs ];    
     const worklogsLoading = false;
-    return { ...state, worklogsLoading, worklogs }
+    const loggedMins = worklogs.reduce((sum, worklog) => sum + worklog.loggedMins, 0);
+    return { ...state, worklogsLoading, worklogs, loggedMins }
 };
 
 const handleNewWorklog = (state = [], action) => {
     const worklog = { ...action.worklog };
-
+    
     worklog.status = 'awaiting_persistence';
 
     return {

@@ -11,8 +11,8 @@ import projects from 'App/Client/Mocks/projects';
 import tasks from 'App/Client/Mocks/employeeTasks';
 
 class EmployeeWorklogsScene extends React.Component {
-    componentDidMount() {        
-        const { date, onReadyToReceiveWorklogs } = this.props;        
+    componentWillReceiveProps(nextProps) {
+        const { date, onReadyToReceiveWorklogs } = nextProps;        
          if (onReadyToReceiveWorklogs) {
             onReadyToReceiveWorklogs(date);
          }

@@ -13,6 +13,7 @@ export const loadWorklogsFromFirestore = (date) => {
     const db = firebase.firestore();   
     return new Promise((resolve, reject) => {        
         db.collection('worklogs')
+            .where("logDate", "==", date)
             .get()
             .catch(reject)
             .then(querySnapshot => {

@@ -33,15 +33,17 @@ class WorklogForm extends React.Component {
     }
 
     getWorklog() {
+        const { logDate } = this.props;
         const { project, task } = this.state;
         const breakdown = {
             hours: this.state.hours,
             minutes: this.state.minutes
         };
         
-        return {            
+        return {
             project,
             task,
+            logDate,
             loggedMins: getDurationInMinutesFromBreakdown(breakdown)
         };
     }
