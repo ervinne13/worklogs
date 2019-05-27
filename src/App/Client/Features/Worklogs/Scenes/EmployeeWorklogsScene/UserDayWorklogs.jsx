@@ -3,7 +3,7 @@ import ProjectLogTable from 'App/Client/Features/Worklogs/Components/ProjectLogT
 import ProjectLogTableComponent from 'App/Client/Features/Worklogs/Components/ProjectLogCard';
 import { isViewportSmall } from 'App/Client/Common/Utilities/Viewport';
 
-const UserDayWorklogs = ({ worklogs }) => {
+const UserDayWorklogs = ({ worklogs }) => {    
     const groupedWorklogs = groupByProject(worklogs);    
     return Object.values(groupedWorklogs).map((worklogsByProject, worklogId) => {
         if (isViewportSmall()) {

@@ -11,11 +11,22 @@ import projects from 'App/Client/Mocks/projects';
 import tasks from 'App/Client/Mocks/employeeTasks';
 
 class EmployeeWorklogsScene extends React.Component {
-    componentWillReceiveProps(nextProps) {
-        const { date, onReadyToReceiveWorklogs } = nextProps;        
-         if (onReadyToReceiveWorklogs) {
+    componentDidMount() {
+        this.triggerReadyToReceiveWorklogs();
+    }    
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.date !== this.props.date) {
+            this.triggerReadyToReceiveWorklogs();
+        }
+    }
+
+    triggerReadyToReceiveWorklogs() {
+        const { date, onReadyToReceiveWorklogs } = this.props;        
+        if (onReadyToReceiveWorklogs) {
             onReadyToReceiveWorklogs(date);
-         }
+            console.log('EmployeeWorklogsScene.componentDidMount');
+        }
     }
 
     render() {
@@ -27,7 +38,7 @@ class EmployeeWorklogsScene extends React.Component {
                         <SideBar date={ date }/>
                     </Col>
                     <Col md={ 8 }>
-                        <MainContent { ...this.props } />
+                        <MainContent { ...this.props }/>
                     </Col>
                 </Row>
             </Grid>
@@ -36,7 +47,7 @@ class EmployeeWorklogsScene extends React.Component {
 }
 
 const SideBar = ({ date }) => <VerticalDateNavigator selectedDate={ date } />;
-const MainContent = ({ worklogsLoading, worklogs, date, loggedMins }) => {    
+const MainContent = ({ worklogsLoading, worklogs, date, loggedMins }) => {
     if (date) {
         return (
             <Fragment>

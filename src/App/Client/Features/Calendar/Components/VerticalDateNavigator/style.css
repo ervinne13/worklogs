@@ -20,4 +20,5 @@
 .navigation-button:focus {
     background: rgb(238, 236, 236);
     border: none;
+    outline: none;
 }

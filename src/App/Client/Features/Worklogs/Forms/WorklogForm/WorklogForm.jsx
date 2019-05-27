@@ -24,7 +24,6 @@ class WorklogForm extends React.Component {
             const durationBreakdown = breakDownDurationInMinutesToHoursAndMinutes(worklog.loggedMins);
             hours = durationBreakdown.hours;
             minutes = durationBreakdown.minutes;
-
             project = worklog.project;
             task = worklog.task;
         }
@@ -39,7 +38,7 @@ class WorklogForm extends React.Component {
             hours: this.state.hours,
             minutes: this.state.minutes
         };
-        
+
         return {
             project,
             task,
@@ -52,7 +51,7 @@ class WorklogForm extends React.Component {
         this.setState({ [input]: value });
     }
 
-    onAddToLog = () =>{
+    onAddToLog = () => {
         const { onAddToLog: parentOnAddToLog } = this.props;
 
         if (parentOnAddToLog) {
@@ -70,32 +69,32 @@ class WorklogForm extends React.Component {
                     <Row>
                         <Col sm={12} md={6} >
                             <div className="vspaced-children-10">
-                                <ProjectSelectInput 
-                                    selectedProject={project} 
+                                <ProjectSelectInput
+                                    selectedProject={project}
                                     projects={projects}
-                                    onProjectSelected={ project => this.onInputValueChanged('project', project) } />
+                                    onProjectSelected={project => this.onInputValueChanged('project', project)} />
 
-                                <TaskSelectInput 
-                                    selectedTask={task} 
-                                    tasks={tasks} 
-                                    onTaskSelected={ task => this.onInputValueChanged('task', task) } />
+                                <TaskSelectInput
+                                    selectedTask={task}
+                                    tasks={tasks}
+                                    onTaskSelected={task => this.onInputValueChanged('task', task)} />
                             </div>
                         </Col>
 
                         <Col sm={12} md={3} >
                             <div className="vspaced-children-10" >
-                                <LoggedHoursInput 
-                                    loggedHours={hours} 
-                                    onChange={ hours => this.onInputValueChanged('hours', hours) } />
-                                <LoggedMinutesInput 
-                                    loggedMinutes={minutes} 
-                                    onChange={ minutes => this.onInputValueChanged('minutes', minutes) } />
+                                <LoggedHoursInput
+                                    loggedHours={hours}
+                                    onChange={hours => this.onInputValueChanged('hours', hours)} />
+                                <LoggedMinutesInput
+                                    loggedMinutes={minutes}
+                                    onChange={minutes => this.onInputValueChanged('minutes', minutes)} />
                             </div>
                         </Col>
 
                         <Col sm={12} md={3} >
                             <div style={{ marginTop: '50px' }}>
-                                <button onClick={ this.onAddToLog } className="call-to-action -lightgreen shadowed">Add to Logs</button>
+                                <button onClick={this.onAddToLog} className="call-to-action -lightgreen shadowed">Add to Logs</button>
                             </div>
                         </Col>
                     </Row>

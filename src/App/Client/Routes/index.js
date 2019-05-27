@@ -8,6 +8,7 @@ import EmployeeWorklogsScene from 'App/Client/Features/Worklogs/Scenes/EmployeeW
 const Routes = () => (
     <BrowserRouter>
         <Switch>
+            <Route exact path="/palette" component={ ComponentsPalette } />
             <Route exact path="/palette/components" component={ ComponentsPalette } />
             <Route exact path="/palette/composites" component={ CompositesPalette } />
             <Route exact path="/" component={ EmployeeWorklogsScene } />

@@ -5,7 +5,7 @@ import UndefinedEnvVariableError from 'App/Client/Common/Errors/UndefinedEnvVari
 
 export const mapImpl = (() => {
     try {
-        return createMapper(process.env.REACT_APP_CLIENT_PERSISTENCE_DRIVER);
+        return createMapper(process.env.REACT_APP_SERVER_PERSISTENCE_DRIVER);
     } catch(e) {
         if (ImplementationNotFoundError.checkMatchWith(e, UNDEFINED_IMPLEMENTATION)) {
             throw UndefinedEnvVariableError.from('REACT_APP_SERVER_PERSISTENCE_DRIVER');

@@ -5,7 +5,6 @@ import WorkLogActions from 'App/Client/Features/Worklogs/Components/WorkLogActio
 import './style.css'
 
 const ProjectLogTableComponent = ({ worklogs }) => {
-
     const sum = worklogs => worklogs.reduce((sum, worklog) => sum + worklog.loggedMins, 0);
     const totalLoggedMins = sum(worklogs);
 
@@ -17,7 +16,9 @@ const ProjectLogTableComponent = ({ worklogs }) => {
                         <Row 
                             log={ log } 
                             showsProject={ index === 0 } 
-                            key={ log.id } />) 
+                            key={ index }   //FIXME: later
+                            // key={ log.id }
+                         />) 
                 }
             </tbody>
             <tfoot>
