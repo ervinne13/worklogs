@@ -46,7 +46,13 @@ export const getTotalLoggedMinsInDate = (date) => {
 const FirestorePersistenceModule = {
     saveWorklog,
     loadWorklogs,
-    getTotalLoggedMinsInDate
+    getTotalLoggedMinsInDate,
 }
+
+Object.defineProperty(
+    FirestorePersistenceModule,
+    'NAME',
+    { get: () => 'FirestorePersistenceModule' }
+);
 
 export default FirestorePersistenceModule;

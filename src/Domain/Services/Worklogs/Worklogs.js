@@ -19,7 +19,7 @@ export const createModule = ({ worklogsPersistenceModule }) => {
     
     const validateWorklogWithinTotalTimeLogged = async worklog => {
         const totalLoggedMins = await worklogsPersistenceModule.getTotalLoggedMinsInDate(worklog.logDate);
-        const didExceed24Hrs = totalLoggedMins + worklog.loggedMins > 24;
+        const didExceed24Hrs = totalLoggedMins + worklog.loggedMins > ( 24 * 60 );
         if (didExceed24Hrs) {
             throw InvalidWorklogError.fromExceededDailyLogTime();
         }

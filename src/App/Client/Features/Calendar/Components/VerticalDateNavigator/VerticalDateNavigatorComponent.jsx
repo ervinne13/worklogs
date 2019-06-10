@@ -63,7 +63,7 @@ class VerticalDateNavigatorComponent extends React.Component {
                         <li key={ date.toString() } >
                             <CalendarLinkItem 
                                 date={ date } 
-                                isActive={ selectedDate && (new Date(selectedDate)).getDate() === date.getDate() } 
+                                isActive={ testDateMatch(selectedDate, date) } 
                             />
                         </li>
                     ))}
@@ -75,10 +75,18 @@ class VerticalDateNavigatorComponent extends React.Component {
 }
 
 const Navigator = ({ direction, onClick }) => (
-    <button className="navigation-button" onClick={ onClick } >        
+    <button className="navigation-btn" onClick={ onClick } >        
         <Caret direction={ direction } />
     </button>
 );
+
+const testDateMatch = (date1, date2) => {
+    return date1 && date2
+        && (new Date(date1)).getFullYear() === date2.getFullYear()
+        && (new Date(date1)).getDate() === date2.getDate()
+        && (new Date(date1)).getMonth() === date2.getMonth()
+    ;
+};
 
 VerticalDateNavigatorComponent.propTypes = {
     selectedDate: optionalLooseDate

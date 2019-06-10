@@ -12,8 +12,10 @@ import tasks from 'App/Client/Mocks/employeeTasks';
 
 class EmployeeWorklogsScene extends React.Component {
     componentDidMount() {
-        this.triggerReadyToReceiveWorklogs();
-    }    
+        if (this.props.date) {
+            this.triggerReadyToReceiveWorklogs();
+        }
+    }
 
     componentDidUpdate(prevProps) {
         if (prevProps.date !== this.props.date) {
@@ -30,6 +32,7 @@ class EmployeeWorklogsScene extends React.Component {
     }
 
     render() {
+        console.log('rendered all');
         const { date } = this.props;
         return (
             <Grid fluid>

@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ReactComponent as Logo } from './caret-up.svg';
-import caretDirectionPropType from './caretDirectionPropType';
 
 const CaretComponent = ({ direction, ...props }) => {
     const size = '54px';
@@ -16,7 +16,7 @@ const CaretComponent = ({ direction, ...props }) => {
 };
 
 CaretComponent.propTypes = {
-    direction: caretDirectionPropType
+    direction: PropTypes.oneOf(['up', 'down'])
 };
 
 export default CaretComponent;
